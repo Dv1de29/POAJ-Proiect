@@ -40,4 +40,17 @@ public class Team {
   public String getName() { return this.name; }
   public String getCountryOrigin() { return this.countryOrigin; }
   public List<Player> getPlayers() { return this.players; }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Team other)) return false;
+    return id != null && id.equals(other.id);
+  }
+
+  @Override
+  public int hashCode() {
+    return id == null ? 0 : id.hashCode();
+  }
+
 }

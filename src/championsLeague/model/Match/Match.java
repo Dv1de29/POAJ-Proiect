@@ -6,12 +6,16 @@ import model.group.GroupType;
 import model.team.Team;
 
 public class Match {
-  GroupType group;
-  Integer id;
-  Date matchDate;
+  private GroupType group;
+  private Integer id;
+  private Date matchDate;
 
-  Team homeTeam;
-  Team awayTeam;
+  private Team homeTeam;
+  private Team awayTeam;
+
+  private Integer homeGoals;
+  private Integer awayGoals;
+  private boolean played;
 
   public Match(
     GroupType group_,
@@ -25,5 +29,21 @@ public class Match {
     this.matchDate = matchDate_;
     this.homeTeam = homeTeam_;
     this.awayTeam = awayTeam_;
+    this.played = false;
+  }
+
+  public GroupType getGroup() { return group; }
+  public Integer getId() { return id; }
+  public Date getMatchDate() { return matchDate; }
+  public Team getHomeTeam() { return homeTeam; }
+  public Team getAwayTeam() { return awayTeam; }
+  public Integer getHomeGoals() { return homeGoals; }
+  public Integer getAwayGoals() { return awayGoals; }
+  public boolean isPlayed() { return played; }
+
+  public void recordScore(int home, int away) {
+    this.homeGoals = home;
+    this.awayGoals = away;
+    this.played = true;
   }
 }

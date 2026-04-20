@@ -46,6 +46,11 @@ public class Goalkeeper extends Player {
         this.skills = skills;
     }
 
+    public Goalkeeper(Integer id, String name, String countryOrigin,
+                      int diving, int handling, int kicking, int reflexes, int speed, int positioning) {
+        this(id, name, countryOrigin, new GoalkeeperSkills(diving, handling, kicking, reflexes, speed, positioning));
+    }
+
     public GoalkeeperSkills getSkills() { return skills; }
     public void setSkills(GoalkeeperSkills skills) { this.skills = skills; }
 
