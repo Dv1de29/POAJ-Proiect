@@ -25,20 +25,16 @@ public class GenerateTeamsService {
 
   public List<Team> loadTeams(String jsonPath) throws IOException {
     String json = Files.readString(Path.of(jsonPath));
-    @SuppressWarnings("unchecked")
     List<Object> arr = (List<Object>) new JsonParser(json).parse();
 
     List<Team> teams = new ArrayList<>();
     for (Object entry : arr) {
-      @SuppressWarnings("unchecked")
       Map<String, Object> teamObj = (Map<String, Object>) entry;
       String name = (String) teamObj.get("team");
       Team team = new Team(nextTeamId++, name, "");
 
-      @SuppressWarnings("unchecked")
       List<Object> playersArr = (List<Object>) teamObj.get("players");
       for (Object pEntry : playersArr) {
-        @SuppressWarnings("unchecked")
         Map<String, Object> pObj = (Map<String, Object>) pEntry;
         team.addPlayer(createPlayer(pObj));
       }

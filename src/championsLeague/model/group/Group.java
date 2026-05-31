@@ -11,10 +11,10 @@ import model.Match.Match;
 import model.team.Team;
 
 public class Group{
-  public GroupType group;
+  private GroupType group;
 
-  HashMap<Team, GroupStatistics> teams;
-  TreeMap<Date, Match> matches;
+  private HashMap<Team, GroupStatistics> teams;
+  private TreeMap<Date, Match> matches;
 
   public Group(GroupType group_, List<Team> teams_, TreeMap<Date, Match> matches_){
     this.group = group_;
